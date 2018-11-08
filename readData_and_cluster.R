@@ -137,3 +137,6 @@ print("Make tSNE!")
 seur <- RunTSNE(object = seur, dims.use = 1:numPCs)
 TSNEPlot(object = seur)
 saveRDS(seur, file = paste0(outdir,'clusteredSeur.rds'))
+
+seur.markers <- FindAllMarkers(object = seur, only.pos = T, test.use = "MAST", logfc.threshold = 0.25)
+write.table(seur.markers, file="markerLists.txt")
