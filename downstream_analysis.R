@@ -98,7 +98,7 @@ library(irr)
 icc = icc(res, model="twoway",type="agreement", unit="single")
 icc
 
-# Pseudotime - in the end, ran this on CCA'd data from all batches together for each time point
+# Pseudotime - in the end, ran this on CCA'd suerat object data from all batches together for each time point
 library(monocle)
 options(warn=-1)
 get_correct_root_state <- function(cds, cell_phenotype, root_type){
@@ -111,11 +111,12 @@ get_correct_root_state <- function(cds, cell_phenotype, root_type){
                                            (which.max(table(closest_vertex[cell_ids,]))))]
   root_pr_nodes
 }
-pd <- new("AnnotatedDataFrame", data = seur@meta.data)
-fd = data.frame("gene_short_name" = rownames(seur@raw.data))
-rownames(fd) = rownames(seur@raw.data)
+halved <- SubsetData(seur, cells.use = sample(seur@cell.names, 35000), subset.raw=T)
+pd <- new("AnnotatedDataFrame", data = halved@meta.data)
+fd = data.frame("gene_short_name" = rownames(halved@raw.data))
+rownames(fd) = rownames(halved@raw.data)
 fd <- new("AnnotatedDataFrame", data = fd)
-cds <- newCellDataSet(as.matrix(seur@raw.data),
+cds <- newCellDataSet(halved@raw.data,
                        phenoData = pd, featureData = fd,
                        expressionFamily=negbinomial.size())
 cds <- estimateSizeFactors(cds)
