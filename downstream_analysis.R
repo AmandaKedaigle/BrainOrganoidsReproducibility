@@ -92,7 +92,7 @@ res["RG",] = res["oRG",] + res["oRG/Astroglia",] + res["RG",]
 res = res[rownames(res)!="oRG/Astroglia" & rownames(res)!="oRG",]
 res["CPNs",] = res["CPNs",] + res["Immature CPNs",]
 res = res[rownames(res) != "Immature CPNs",]
-resres["CFuPNs",] = res["CFuPNs",] + res["Immature CFuPNs",]
+res["CFuPNs",] = res["CFuPNs",] + res["Immature CFuPNs",]
 res = res[rownames(res) != "Immature CFuPNs",]
 library(irr)
 icc = icc(res, model="twoway",type="agreement", unit="single")
