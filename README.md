@@ -2,7 +2,7 @@
 
 by Silvia Velasco, Amanda J. Kedaigle, Sean K. Simmons, Allison Nash, Marina Rocha, Giorgia Quadrato, Bruna Paulsen, Lan Nguyen, Xian Adiconis, Aviv Regev, Joshua Z. Levin, and Paola Arlotta.
 
-*In submission*
+https://www.nature.com/articles/s41586-019-1289-x
 
  
 
